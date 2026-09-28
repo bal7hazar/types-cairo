@@ -4,7 +4,7 @@ Types for Cairo, one package per type, published on [scarbs.xyz](https://scarbs.
 
 | Package | Path | Content |
 |---|---|---|
-| [`u252`](crates/u252) | `crates/u252` | An unsigned integer with the value set of `felt252`, held in one field element |
+| [`uint252`](crates/u252) | `crates/u252` | The type `u252`: an unsigned integer with the value set of `felt252`, held in one field element |
 
 ## Rules
 

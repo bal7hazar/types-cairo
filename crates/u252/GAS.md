@@ -1,4 +1,4 @@
-# u252 gas budgets
+# uint252 gas budgets
 
 Every test of the package, benchmarks included, is a snforge test carrying
 `#[available_gas(l2_gas: N)]`: CI fails when a change makes it more expensive than its budget.

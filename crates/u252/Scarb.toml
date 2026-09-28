@@ -1,5 +1,5 @@
 [package]
-name = "u252"
+name = "uint252"
 version.workspace = true
 edition.workspace = true
 cairo-version.workspace = true

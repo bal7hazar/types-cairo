@@ -1,22 +1,21 @@
 //! The examples of `README.md`, compiled against the public API (integration test, as for a
-//! dependent package). The package and the type share the name `u252`: a module that imports
-//! the type cannot import anything else from the package, so the type is written `u252::u252`.
+//! dependent package).
 
 use core::num::traits::{Bounded, CheckedAdd, WrappingAdd};
-use u252::bits::Bits;
-use u252::{PRIME, U252Trait};
+use uint252::bits::Bits;
+use uint252::{PRIME, U252Trait, u252};
 
 #[test]
 #[available_gas(l2_gas: 59751)]
 fn test_readme_usage() {
     // Conversions with `felt252` are free, both ways
-    let x: u252::u252 = 0x2a.into();
+    let x: u252 = 0x2a.into();
     let raw: felt252 = x.into();
     assert!(raw == 0x2a);
     assert!(x.value() == raw);
     assert!(U252Trait::new(raw) == x);
     // Checked arithmetic on the integers `[0, P - 1]`
-    let max: u252::u252 = Bounded::MAX;
+    let max: u252 = Bounded::MAX;
     assert!(max.checked_add(x).is_none());
     assert!(max.wrapping_add(x).value() == 0x29);
     assert!(x + x == 84_u8.into());
@@ -46,7 +45,7 @@ fn test_readme_bits() {
 #[available_gas(l2_gas: 20097)]
 #[should_panic(expected: 'u252_add Overflow')]
 fn test_readme_add_overflow() {
-    let max: u252::u252 = Bounded::MAX;
-    let one: u252::u252 = 1_u8.into();
+    let max: u252 = Bounded::MAX;
+    let one: u252 = 1_u8.into();
     max + one;
 }

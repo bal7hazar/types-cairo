@@ -7,6 +7,10 @@ messages are API.
 
 ## [Unreleased]
 
+## uint252 [0.1.0] - 2026-09-28
+
+Published on scarbs.xyz: <https://scarbs.xyz/packages/uint252>, from commit `daf5576`.
+
 ### Added
 
 - Workspace `types-cairo` and its first package, `uint252` (`crates/u252`): the type `u252`, `U252Trait`, `PRIME`,

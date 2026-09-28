@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Format, build, test (${{ matrix.package }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [u252]
+    steps:
+      - uses: actions/checkout@v4
+      # Versions come from .tool-versions: scarb 2.19.4, starknet-foundry 0.61.0.
+      - uses: software-mansion/setup-scarb@v1
+      - uses: foundry-rs/setup-snfoundry@v4
+      - name: Format
+        run: scarb fmt --check --workspace
+      - name: Build
+        run: scarb build --package ${{ matrix.package }}
+      # Every test carries a gas budget: a cost regression fails here.
+      - name: Test
+        run: snforge test --package ${{ matrix.package }}
+      - name: Package
+        run: scarb package --package ${{ matrix.package }}

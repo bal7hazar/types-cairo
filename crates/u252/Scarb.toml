@@ -1,0 +1,19 @@
+[package]
+name = "u252"
+version.workspace = true
+edition.workspace = true
+cairo-version.workspace = true
+description = "An unsigned integer with the value set of felt252, held in one field element."
+license.workspace = true
+license-file.workspace = true
+repository.workspace = true
+homepage = "https://github.com/bal7hazar/types-cairo/tree/main/crates/u252"
+documentation = "https://github.com/bal7hazar/types-cairo/tree/main/crates/u252#readme"
+readme = "README.md"
+keywords = ["starknet", "cairo", "integer", "felt252", "bitmap", "types"]
+
+[dev-dependencies]
+snforge_std.workspace = true
+
+[scripts]
+test = "snforge test"

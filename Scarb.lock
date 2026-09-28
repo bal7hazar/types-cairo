@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "u252"
+name = "uint252"
 version = "0.1.0"
 dependencies = [
  "snforge_std",

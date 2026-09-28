@@ -4,8 +4,8 @@ Every test of the package, benchmarks included, is a snforge test carrying
 `#[available_gas(l2_gas: N)]`: CI fails when a change makes it more expensive than its budget.
 
 Measured on 2026-09-28 at commit `604b376` with scarb 2.19.4 and snforge 0.61.0 (Sierra gas;
-with Sierra >= 1.7 snforge reports `l2_gas` = Sierra gas, builtins included). The column "origami_hexmap 1.8.0" is the same
-test measured the same day in `dojoengine/origami` at commit `04ab30c` (workspace version 1.8.0),
+with Sierra >= 1.7 snforge reports `l2_gas` = Sierra gas, builtins included). The column
+"origami_hexmap 1.8.0" is the same test measured the same day in `dojoengine/origami` at commit `04ab30c` (workspace version 1.8.0),
 where the code was extracted from: every figure is identical, the extraction costs nothing.
 
 ## How to record a budget
